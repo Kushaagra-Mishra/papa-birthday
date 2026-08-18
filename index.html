@@ -26,260 +26,372 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.5rem);line-he
 .signature{margin-top:24px;font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.3rem}
 @media(max-width:650px){.slide{padding:25px 22px 80px}.photo-card{width:min(330px,82vw);height:min(470px,59vh)}.nav{bottom:16px;padding:10px 17px}#next{right:12px}#prev{left:12px}.cake-wrap{transform:scale(.82);margin-top:18px}}
 
+
 /* =========================================================
-   MOBILE-FIRST OVERRIDES
-   Content intentionally unchanged.
+   PHONE FIT — layout only; existing content unchanged
 ========================================================= */
 
-html{
-    -webkit-text-size-adjust:100%;
-    text-size-adjust:100%;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
 }
 
-body{
-    min-height:100dvh;
-    min-height:100svh;
-    overscroll-behavior:none;
-    -webkit-tap-highlight-color:transparent;
+body {
+    min-height: 100dvh;
+    min-height: 100svh;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.slider{
-    height:100dvh;
-    min-height:100svh;
+.slider {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100svh;
 }
 
-.slide{
-    height:100dvh;
-    min-height:100svh;
+.slide {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100svh;
     padding:
-        max(28px, env(safe-area-inset-top))
-        max(18px, env(safe-area-inset-right))
-        calc(88px + env(safe-area-inset-bottom))
-        max(18px, env(safe-area-inset-left));
-    overflow:hidden;
+        max(18px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-right))
+        calc(72px + env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
+    overflow: hidden;
 }
 
-h1{
-    font-size:clamp(1.85rem,8vw,3.5rem);
-    max-width:min(900px,94vw);
-    margin-bottom:16px;
-}
+@media (max-width: 600px) {
 
-.sub{
-    width:min(720px,92vw);
-    font-size:clamp(.94rem,4.1vw,1.15rem);
-    line-height:1.65;
-}
-
-.small{
-    max-width:90vw;
-    font-size:.68rem;
-    line-height:1.5;
-    letter-spacing:1.2px;
-}
-
-.nav{
-    min-height:46px;
-    min-width:112px;
-    padding:11px 17px;
-    bottom:calc(10px + env(safe-area-inset-bottom));
-    touch-action:manipulation;
-}
-
-#next{right:max(10px,env(safe-area-inset-right))}
-#prev{left:max(10px,env(safe-area-inset-left))}
-
-.counter{
-    top:max(12px,env(safe-area-inset-top));
-    right:max(14px,env(safe-area-inset-right));
-    font-size:.66rem;
-    pointer-events:none;
-}
-
-/* Keep every photograph genuinely 3:4 on phones. */
-.photo-card{
-    width:min(76vw,330px);
-    height:auto;
-    aspect-ratio:3 / 4;
-    min-height:0;
-    flex:0 1 auto;
-    margin:4px 0 0;
-}
-
-.photo-frame{
-    aspect-ratio:3 / 4;
-}
-
-.photo-label{
-    bottom:18px;
-    font-size:clamp(1.18rem,5.2vw,1.65rem);
-    padding:0 10px;
-}
-
-.photo-number{
-    top:12px;
-    right:14px;
-}
-
-.photo-copy{
-    margin-top:12px;
-    max-width:90vw;
-}
-
-.card{
-    width:min(88vw,500px);
-    margin:20px 0;
-    padding:25px 20px;
-    touch-action:manipulation;
-}
-
-.card h3{
-    font-size:1.35rem;
-}
-
-.card-icon{
-    font-size:2rem;
-}
-
-.cake-wrap{
-    width:min(88vw,300px);
-    height:215px;
-    margin-top:12px;
-    transform:none;
-    flex:0 0 auto;
-}
-
-.cake{
-    width:190px;
-    height:88px;
-}
-
-.cake:before{
-    width:196px;
-    height:24px;
-}
-
-.plate{
-    width:250px;
-}
-
-.candles{
-    top:14px;
-    gap:28px;
-}
-
-.candle{
-    width:11px;
-    height:54px;
-}
-
-#cake-hint{
-    margin-top:2px;
-}
-
-#wish{
-    margin-top:8px;
-}
-
-.signature{
-    font-size:1.15rem;
-    margin-top:18px;
-}
-
-/* Small phones: prioritize fitting the whole slide without clipping. */
-@media (max-height:700px){
-    .slide{
-        padding-top:34px;
-        padding-bottom:78px;
+    .slide {
+        justify-content: center;
+        gap: 0;
+        transform: scale(.98);
+        transition:
+            opacity .65s ease,
+            transform .75s cubic-bezier(.22,1,.36,1);
     }
 
-    h1{
-        font-size:clamp(1.7rem,7.5vw,2.6rem);
-        margin-bottom:12px;
+    .slide.active {
+        transform: scale(1);
     }
 
-    .sub{
-        font-size:clamp(.88rem,3.8vw,1rem);
-        line-height:1.55;
+    h1 {
+        width: 100%;
+        max-width: 94vw;
+        margin-bottom: 10px;
+        font-size: clamp(1.55rem, 7.2vw, 2.35rem);
+        line-height: 1.12;
     }
 
-    .small{
-        margin-top:11px;
-        font-size:.63rem;
+    .sub {
+        width: 100%;
+        max-width: 91vw;
+        font-size: clamp(.84rem, 3.65vw, 1.02rem);
+        line-height: 1.48;
     }
 
-    .photo-card{
-        width:min(67vw,270px);
+    .small {
+        width: 100%;
+        max-width: 90vw;
+        margin-top: 11px;
+        font-size: .62rem;
+        line-height: 1.4;
+        letter-spacing: 1px;
     }
 
-    .card{
-        padding:21px 18px;
-        margin:15px 0;
+    /* PHOTO SLIDES:
+       Height is the primary constraint so the 3:4 card cannot push
+       the title/buttons off the viewport. */
+    .photo-card {
+        width: min(68vw, 255px);
+        height: min(55svh, 340px);
+        aspect-ratio: 3 / 4;
+        margin: 8px 0 0;
+        flex: 0 0 auto;
     }
 
-    .cake-wrap{
-        height:190px;
-        transform:scale(.86);
-        transform-origin:center top;
-        margin-bottom:-22px;
+    .photo-frame {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 3 / 4;
+    }
+
+    .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .photo-label {
+        bottom: 14px;
+        padding: 0 8px;
+        font-size: clamp(1rem, 4.7vw, 1.35rem);
+        line-height: 1.1;
+    }
+
+    .photo-number {
+        top: 9px;
+        right: 10px;
+        font-size: .62rem;
+    }
+
+    .photo-copy {
+        width: 100%;
+        max-width: 90vw;
+        margin-top: 8px;
+    }
+
+    /* Generic cards */
+    .card {
+        width: min(88vw, 430px);
+        margin: 14px 0;
+        padding: 21px 17px;
+        border-radius: 16px;
+    }
+
+    .card-icon {
+        font-size: 1.9rem;
+        margin-bottom: 11px;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .hidden-text {
+        max-height: 0;
+    }
+
+    /* Cake: constrained by viewport height, not width. */
+    .cake-wrap {
+        width: min(82vw, 280px);
+        height: min(31svh, 205px);
+        min-height: 155px;
+        margin: 12px 0 0;
+        transform: none;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cake {
+        width: min(190px, 62vw);
+        height: min(82px, 13svh);
+        margin: 0;
+    }
+
+    .cake::before {
+        width: calc(100% + 6px);
+    }
+
+    .candles {
+        top: -48px;
+        gap: 24px;
+    }
+
+    .candle {
+        width: 9px;
+        height: 38px;
+    }
+
+    #cake-hint {
+        margin-top: 4px;
+    }
+
+    #wish {
+        margin-top: 7px;
+    }
+
+    .signature {
+        margin-top: 13px;
+        font-size: 1.05rem;
+    }
+
+    .nav {
+        position: fixed;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        min-height: 44px;
+        min-width: 102px;
+        padding: 10px 14px;
+        font-size: .67rem;
+        letter-spacing: .8px;
+        z-index: 1000;
+        touch-action: manipulation;
+    }
+
+    #next {
+        right: max(10px, env(safe-area-inset-right));
+    }
+
+    #prev {
+        left: max(10px, env(safe-area-inset-left));
+    }
+
+    /* Counter, if present in the generated version. */
+    .counter {
+        top: max(9px, env(safe-area-inset-top));
+        right: max(11px, env(safe-area-inset-right));
+        font-size: .6rem;
     }
 }
 
-/* Very narrow phones */
-@media (max-width:380px){
-    .photo-card{
-        width:min(70vw,250px);
+/* Short phones: shrink vertically before anything can clip. */
+@media (max-width: 600px) and (max-height: 760px) {
+    .slide {
+        padding-bottom: calc(64px + env(safe-area-inset-bottom));
     }
 
-    .nav{
-        min-width:100px;
-        padding:10px 13px;
-        font-size:.69rem;
+    h1 {
+        font-size: clamp(1.42rem, 6.8vw, 2.05rem);
+        margin-bottom: 8px;
     }
 
-    .sub{
-        width:94vw;
+    .sub {
+        font-size: clamp(.79rem, 3.35vw, .94rem);
+        line-height: 1.4;
+    }
+
+    .small {
+        margin-top: 8px;
+        font-size: .58rem;
+    }
+
+    .photo-card {
+        width: min(62vw, 225px);
+        height: min(51svh, 285px);
+    }
+
+    .card {
+        margin: 10px 0;
+        padding: 17px 15px;
+    }
+
+    .card-icon {
+        font-size: 1.65rem;
+        margin-bottom: 7px;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 7px;
+    }
+
+    .cake-wrap {
+        height: min(27svh, 175px);
+        min-height: 135px;
+        transform: scale(.9);
+        margin-top: 2px;
+        margin-bottom: -8px;
+    }
+}
+
+/* Very short phones such as 320x568. */
+@media (max-width: 600px) and (max-height: 620px) {
+    .slide {
+        padding-top: 14px;
+        padding-bottom: calc(58px + env(safe-area-inset-bottom));
+    }
+
+    h1 {
+        font-size: clamp(1.28rem, 6.4vw, 1.8rem);
+        margin-bottom: 6px;
+    }
+
+    .sub {
+        font-size: clamp(.73rem, 3.15vw, .86rem);
+        line-height: 1.34;
+    }
+
+    .small {
+        font-size: .54rem;
+        margin-top: 6px;
+    }
+
+    .photo-card {
+        width: min(57vw, 190px);
+        height: min(46svh, 240px);
+        margin-top: 4px;
+    }
+
+    .photo-label {
+        font-size: .92rem;
+    }
+
+    .card {
+        padding: 14px 12px;
+        margin: 7px 0;
+    }
+
+    .cake-wrap {
+        height: 145px;
+        min-height: 115px;
+        transform: scale(.76);
+        margin-top: -8px;
+        margin-bottom: -25px;
+    }
+
+    .nav {
+        min-width: 94px;
+        min-height: 40px;
+        padding: 8px 11px;
     }
 }
 
 /* Landscape phones */
-@media (orientation:landscape) and (max-height:520px){
-    .slide{
-        padding-top:28px;
-        padding-bottom:68px;
-        justify-content:flex-start;
-        overflow-y:auto;
-        scrollbar-width:none;
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 600px) {
+    .slide {
+        justify-content: flex-start;
+        overflow-y: auto;
+        scrollbar-width: none;
+        padding:
+            12px
+            18px
+            58px;
     }
 
-    .slide::-webkit-scrollbar{display:none}
-
-    .photo-card{
-        width:auto;
-        height:min(68vh,300px);
-        aspect-ratio:3 / 4;
+    .slide::-webkit-scrollbar {
+        display: none;
     }
 
-    h1{
-        font-size:clamp(1.55rem,6vw,2.5rem);
+    h1 {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+        margin-bottom: 6px;
     }
 
-    .cake-wrap{
-        transform:scale(.7);
-        transform-origin:center top;
-        margin-bottom:-65px;
+    .sub {
+        font-size: .78rem;
+        line-height: 1.35;
+    }
+
+    .photo-card {
+        height: 57vh;
+        width: auto;
+        aspect-ratio: 3 / 4;
+    }
+
+    .cake-wrap {
+        height: 145px;
+        transform: scale(.72);
+        margin: -10px 0 -30px;
     }
 }
 
-/* Accessibility / touch */
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion: reduce) {
     .slide,
     .photo-card,
     .float,
     .flame,
-    .smoke{
-        animation:none !important;
-        transition:none !important;
+    .smoke {
+        animation: none !important;
+        transition: none !important;
     }
 }
 
