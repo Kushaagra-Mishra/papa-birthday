@@ -25,6 +25,264 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.5rem);line-he
 .cake-wrap{margin-top:36px;position:relative;width:310px;height:250px;display:flex;align-items:flex-end;justify-content:center}.cake-shadow{position:absolute;bottom:8px;width:280px;height:28px;border-radius:50%;background:rgba(0,0,0,.38);filter:blur(7px)}.cake{position:relative;width:230px;height:105px;border-radius:0 0 16px 16px;background:linear-gradient(#8e5a38,#5d3827);box-shadow:0 18px 35px rgba(0,0,0,.35);z-index:2}.cake:before{content:"";position:absolute;top:-13px;left:-3px;width:236px;height:28px;border-radius:50%;background:linear-gradient(#fff2ce,#dcb878);box-shadow:0 5px 0 #c49752}.cake:after{content:"";position:absolute;left:0;right:0;bottom:31px;height:7px;background:#f0d38e;box-shadow:0 -3px 0 rgba(255,255,255,.12)}.plate{position:absolute;bottom:0;width:290px;height:20px;border-radius:50%;background:linear-gradient(#d7d4cb,#77746d);z-index:1}.candles{position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;gap:40px;z-index:4}.candle{position:relative;width:12px;height:62px;background:repeating-linear-gradient(135deg,#f7f0df 0 7px,#d8b56a 7px 11px);border-radius:3px;cursor:pointer}.flame{position:absolute;left:50%;top:-24px;transform:translateX(-50%) rotate(45deg);width:18px;height:18px;border-radius:70% 10% 70% 10%;background:#f2b84b;box-shadow:0 0 18px #e7a53a;animation:flicker .55s infinite alternate}.flame:after{content:"";position:absolute;inset:4px;background:#fff0a6;border-radius:70% 10% 70% 10%}.candle.blown .flame{display:none}.smoke{position:absolute;top:-28px;left:50%;width:3px;height:30px;background:rgba(220,220,220,.3);border-radius:50%;opacity:0}.candle.blown .smoke{animation:smoke 1.4s ease forwards}@keyframes flicker{to{transform:translateX(-50%) rotate(50deg) scale(1.12)}}@keyframes smoke{from{opacity:.5;transform:translate(-50%,0)}to{opacity:0;transform:translate(-20%,-30px) scale(2)}}#wish{opacity:0;margin-top:14px;color:var(--gold2);transition:1s}.show{opacity:1!important}
 .signature{margin-top:24px;font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.3rem}
 @media(max-width:650px){.slide{padding:25px 22px 80px}.photo-card{width:min(330px,82vw);height:min(470px,59vh)}.nav{bottom:16px;padding:10px 17px}#next{right:12px}#prev{left:12px}.cake-wrap{transform:scale(.82);margin-top:18px}}
+
+/* =========================================================
+   MOBILE-FIRST OVERRIDES
+   Content intentionally unchanged.
+========================================================= */
+
+html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+}
+
+body{
+    min-height:100dvh;
+    min-height:100svh;
+    overscroll-behavior:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.slider{
+    height:100dvh;
+    min-height:100svh;
+}
+
+.slide{
+    height:100dvh;
+    min-height:100svh;
+    padding:
+        max(28px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        calc(88px + env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+    overflow:hidden;
+}
+
+h1{
+    font-size:clamp(1.85rem,8vw,3.5rem);
+    max-width:min(900px,94vw);
+    margin-bottom:16px;
+}
+
+.sub{
+    width:min(720px,92vw);
+    font-size:clamp(.94rem,4.1vw,1.15rem);
+    line-height:1.65;
+}
+
+.small{
+    max-width:90vw;
+    font-size:.68rem;
+    line-height:1.5;
+    letter-spacing:1.2px;
+}
+
+.nav{
+    min-height:46px;
+    min-width:112px;
+    padding:11px 17px;
+    bottom:calc(10px + env(safe-area-inset-bottom));
+    touch-action:manipulation;
+}
+
+#next{right:max(10px,env(safe-area-inset-right))}
+#prev{left:max(10px,env(safe-area-inset-left))}
+
+.counter{
+    top:max(12px,env(safe-area-inset-top));
+    right:max(14px,env(safe-area-inset-right));
+    font-size:.66rem;
+    pointer-events:none;
+}
+
+/* Keep every photograph genuinely 3:4 on phones. */
+.photo-card{
+    width:min(76vw,330px);
+    height:auto;
+    aspect-ratio:3 / 4;
+    min-height:0;
+    flex:0 1 auto;
+    margin:4px 0 0;
+}
+
+.photo-frame{
+    aspect-ratio:3 / 4;
+}
+
+.photo-label{
+    bottom:18px;
+    font-size:clamp(1.18rem,5.2vw,1.65rem);
+    padding:0 10px;
+}
+
+.photo-number{
+    top:12px;
+    right:14px;
+}
+
+.photo-copy{
+    margin-top:12px;
+    max-width:90vw;
+}
+
+.card{
+    width:min(88vw,500px);
+    margin:20px 0;
+    padding:25px 20px;
+    touch-action:manipulation;
+}
+
+.card h3{
+    font-size:1.35rem;
+}
+
+.card-icon{
+    font-size:2rem;
+}
+
+.cake-wrap{
+    width:min(88vw,300px);
+    height:215px;
+    margin-top:12px;
+    transform:none;
+    flex:0 0 auto;
+}
+
+.cake{
+    width:190px;
+    height:88px;
+}
+
+.cake:before{
+    width:196px;
+    height:24px;
+}
+
+.plate{
+    width:250px;
+}
+
+.candles{
+    top:14px;
+    gap:28px;
+}
+
+.candle{
+    width:11px;
+    height:54px;
+}
+
+#cake-hint{
+    margin-top:2px;
+}
+
+#wish{
+    margin-top:8px;
+}
+
+.signature{
+    font-size:1.15rem;
+    margin-top:18px;
+}
+
+/* Small phones: prioritize fitting the whole slide without clipping. */
+@media (max-height:700px){
+    .slide{
+        padding-top:34px;
+        padding-bottom:78px;
+    }
+
+    h1{
+        font-size:clamp(1.7rem,7.5vw,2.6rem);
+        margin-bottom:12px;
+    }
+
+    .sub{
+        font-size:clamp(.88rem,3.8vw,1rem);
+        line-height:1.55;
+    }
+
+    .small{
+        margin-top:11px;
+        font-size:.63rem;
+    }
+
+    .photo-card{
+        width:min(67vw,270px);
+    }
+
+    .card{
+        padding:21px 18px;
+        margin:15px 0;
+    }
+
+    .cake-wrap{
+        height:190px;
+        transform:scale(.86);
+        transform-origin:center top;
+        margin-bottom:-22px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width:380px){
+    .photo-card{
+        width:min(70vw,250px);
+    }
+
+    .nav{
+        min-width:100px;
+        padding:10px 13px;
+        font-size:.69rem;
+    }
+
+    .sub{
+        width:94vw;
+    }
+}
+
+/* Landscape phones */
+@media (orientation:landscape) and (max-height:520px){
+    .slide{
+        padding-top:28px;
+        padding-bottom:68px;
+        justify-content:flex-start;
+        overflow-y:auto;
+        scrollbar-width:none;
+    }
+
+    .slide::-webkit-scrollbar{display:none}
+
+    .photo-card{
+        width:auto;
+        height:min(68vh,300px);
+        aspect-ratio:3 / 4;
+    }
+
+    h1{
+        font-size:clamp(1.55rem,6vw,2.5rem);
+    }
+
+    .cake-wrap{
+        transform:scale(.7);
+        transform-origin:center top;
+        margin-bottom:-65px;
+    }
+}
+
+/* Accessibility / touch */
+@media (prefers-reduced-motion:reduce){
+    .slide,
+    .photo-card,
+    .float,
+    .flame,
+    .smoke{
+        animation:none !important;
+        transition:none !important;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -57,5 +315,29 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key
 function openCard(c){c.classList.toggle('open')}
 function blow(c){if(c.classList.contains('blown'))return;c.classList.add('blown');candles++;if(candles===3){document.getElementById('wish').classList.add('show');document.getElementById('cake-hint').style.display='none'}}
 const symbols=['✦','◆','✧','•'];setInterval(()=>{for(let i=0;i<(Math.random()>.65?2:1);i++){const p=document.createElement('div');p.className='float';p.textContent=symbols[Math.floor(Math.random()*symbols.length)];p.style.left=Math.random()*100+'vw';p.style.fontSize=12+Math.random()*18+'px';p.style.animationDuration=8+Math.random()*8+'s';bg.appendChild(p);setTimeout(()=>p.remove(),16000)}},650);update();
+
+/* Mobile swipe navigation */
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener('touchstart', function(e){
+    if(e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, {passive:true});
+
+document.addEventListener('touchend', function(e){
+    if(e.changedTouches.length !== 1) return;
+
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+
+    /* Only treat a clearly horizontal gesture as slide navigation. */
+    if(Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.25){
+        if(dx < 0) move(1);
+        else move(-1);
+    }
+}, {passive:true});
+
 </script>
 </body></html>
